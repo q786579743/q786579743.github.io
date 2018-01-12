@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台系统</title>
+<!--<link rel="stylesheet" type="text/css" href="custom/css/main.css"/>-->
+<!--<script src="../EasyUI/Scripts/jquery-1.8.0.min.js" type="text/javascript" charset="utf-8"></script>-->
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script src="js/jquery-1.8.3.min.js"></script>
+</head>
+<script type="text/javascript">
+	//时间设置
+				function currentTime() {
+					var d = new Date(),
+						str = '';
+					str += d.getFullYear() + '年';
+					str += d.getMonth() + 1 + '月';
+					str += d.getDate() + '日';
+					str += d.getHours() + '时';
+					str += d.getMinutes() + '分';
+					str += d.getSeconds() + '秒';
+					return str;
+				}
+
+				setInterval(function() {
+					$('#time').html(currentTime)
+				}, 1000);
+</script>
+<body>
+<div class="main">
+    <div class="main-box">
+    	<b class="main-name">欢迎进入美特桥架生产管理系统</b>
+    	<div class="time"><p id="time"></p></div>
+    </div>
+</div>
+</body>
+</html>

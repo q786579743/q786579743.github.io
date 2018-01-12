@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<script src="js/jquery-1.8.3.min.js"></script>
+		<script src="js/jquery.easyui.min.js"></script>
+		<link href="css/easyui_style.css" />
+		<link href="css/form.css" rel="stylesheet" type="text/css"/>
+		<link href="css/easyui.css" rel="stylesheet" type="text/css"/>
+		<link href="css/icon.css" rel="stylesheet" type="text/css" />
+		<link href="css/style3.css" rel="stylesheet" type="text/css"/>
+		<!--<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>-->
+	</head>
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">市场部</a> > IQC质检</span> </div>
+		<form>
+			<div class="form_div">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form_table" id="sub1">
+					<colgroup>
+						<col style="width: 120px;" />
+						<col style="width: ;" />
+						<col style="width: 120px;" />
+						<col style="width: ;" />
+						<col style="width: 120px;" />
+						<col style="width: ;" />
+					</colgroup>
+					<tr>
+						<th><span class="required">*</span>检查日期 </th>
+						<td><input id="" maxlength="30" class="easyui-datebox" /></td>
+						<th><span class="required">*</span>部品名 </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+						<th id="" runat="server"><span class="required">*</span>供应商 </th>
+						<td>
+							<select class="easyui-combobox" name="language">
+								<option value="ar">Arabic</option>
+								<option value="bg">Bulgarian</option>
+								<option value="ca">Catalan</option>
+								<option value="zh-cht">Chinese Traditional</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th><span class="required">*</span>图号 </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+						<th><span class="required">*</span>批号 </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+						<th><span class="required">*</span>数量 </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+					</tr>
+					<tr>
+						<th><span class="required">*</span>AQL </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+						<th><span class="required">*</span>AC </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+						<th><span class="required">*</span>RE </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+					</tr>
+					<tr>
+						<th><span class="required">*</span>抽检数 </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+						<th><span class="required">*</span>不良数 </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+						<th><span class="required">*</span>不良率 </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+					</tr>
+				</table>
+				<div class="form-div3">
+					<span class="form-th3"><span class="required">*</span><b>外观</b></span>
+					<span class="form-th5"><input class="easyui-validatebox" data-options="required:true" id="" style="width: 500px;" />
+						</span>
+					<span id="" class="form-th3">
+							<input id="" name="AMState" type="radio" value="OK" /> OK&nbsp;&nbsp;
+							<input id="" name="AMState" type="radio" value="NG" /> NG
+						</span>
+				</div>
+				<div class="form-div3">
+					<span class="form-th3"><span class="required">*</span><b>尺寸</b></span>
+					<span class="form-th5"><input class="easyui-validatebox" data-options="required:true" id="" style="width: 500px;" />
+						</span>
+					<span id="" class="form-th3">
+							<input id="" name="AMState" type="radio" value="OK" /> OK&nbsp;&nbsp;
+							<input id="" name="AMState" type="radio" value="NG" /> NG
+						</span>
+				</div>
+				<div class="form-div3">
+					<span class="form-th3"><span class="required">*</span><b>扭力</b></span>
+					<span class="form-th5"><input class="easyui-validatebox" data-options="required:true" id="" style="width: 500px;" />
+						</span>
+					<span id="" class="form-th3">
+							<input id="" name="AMState" type="radio" value="OK" /> OK&nbsp;&nbsp;
+							<input id="" name="AMState" type="radio" value="NG" /> NG
+						</span>
+				</div>
+				<div class="form-div3">
+					<span class="form-th3"><span class="required">*</span><b>性能</b></span>
+					<span class="form-th5"><input class="easyui-validatebox" data-options="required:true" id="" style="width: 500px;" />
+						</span>
+					<span id="" class="form-th3">
+							<input id="" name="AMState" type="radio" value="OK" />  OK&nbsp;&nbsp;
+							<input id="" name="AMState" type="radio" value="NG" />  NG
+						</span>
+				</div>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form_table" id="">
+					<colgroup>
+						<col style="width: 120px;" />
+						<col style="width: ;" />
+						<col style="width: 120px;" />
+						<col style="width: ;" />
+						<tr>
+							<th><span class="required">*</span>判定 </th>
+							<td><input id="" name="AMState" type="radio" value="OK" /> OK&nbsp;&nbsp;
+								<input id="" name="AMState" type="radio" value="NG" /> NG
+							</td>
+							<th><span class="required">*</span>异常处理 </th>
+							<td>
+								<input id="" name="AMState" type="radio" value="OK" /> 退货&nbsp;&nbsp;
+								<input id="" name="AMState" type="radio" value="NG" /> 特采&nbsp;&nbsp;
+								<input id="" name="AMState" type="radio" value="NG" /> 选别
+							</td>
+						</tr>
+						<tr>
+							<th>&nbsp;&nbsp;&nbsp;MRB上传 </th>
+							<td><input type="file" class="easyui-filebox" id="" name="fileImport"></td>
+							<th>&nbsp;&nbsp;&nbsp;8D报告上传 </th>
+							<td><input type="file" class="easyui-filebox" id="" name="fileImport"></td>
+						</tr>
+						<tr>
+						
+						<th><span class="required">*</span>确认人员 </th>
+						<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+						<th><span class="required">*</span>来料日期 </th>
+						<td><input id="" maxlength="30" class="easyui-datebox" /></td>
+					</tr>
+					</colgroup>
+				</table>
+			</div>
+			<!--按钮位置-->
+			<div class="show_btn">		
+				<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save-w'">保存</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="javascript:void(0)" class="easyui-linkbutton btn_gray" data-options="iconCls:'icon-cancel-w'" onclick="$.pd.closedialog()">取消</a>
+			</div>
+		</form>
+	</body>
+
+</html>
