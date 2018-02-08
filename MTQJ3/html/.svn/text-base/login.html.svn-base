@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>后台系统</title>
+		<link rel="stylesheet" type="text/css" href="custom/css/alike.css" />
+		<link rel="shortcut icon" href="custom/images/favico2.ico">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+	<body>
+		<div id="content-box">
+			<div class="logo-img">
+				<img src="custom/images/login_logo.png"/>
+			</div>
+			<p class="center-1">美特桥架生产管理系统</p>
+			<div class="content-center">
+				<div>					
+					<div class="div-bor">						
+						<input class="center-input1" maxlength="50" name="用户名" type="text" placeholder="请输入用户名"/>
+					</div>
+					<div>						
+						<input class="center-input2"  maxlength="50" name="密码" type="text" placeholder="请输入密码" />
+					</div>
+				</div>
+				<!--<p class="center-dialog">密码错误</p>-->
+				<p>
+					<input  class="center-input3"  name="登录" type="button" value="登&nbsp;录" onclick="location='index.html'" />
+				</p>
+			</div>	
+			<div class="foot-color">
+				<span >技术支持：郑州蓝讯网络科技有限公司</span>
+				<span><img style="width: 16px;height: 16px;" src="custom/images/android.png"/><b>APP下载</b></span>
+			</div>
+		</div>			
+	</body>
+</html>

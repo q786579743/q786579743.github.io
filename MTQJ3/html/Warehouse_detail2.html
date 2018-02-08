@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+		<script src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+	<style>
+		table {
+			width: 95%;
+			height: auto;
+			border: solid 1px #d9e4f2;
+			margin-left: 30px;
+			margin-bottom: 5px;
+		}
+		
+		td {
+			font-family: 宋体;
+			font-size: 14px;
+			width: 80px;
+			height: 30px;
+			text-align: center;
+			border: solid 1px #d9e4f2;
+		}
+		
+		th {
+			font-family: 宋体;
+			font-size: 14px;
+			font-weight: normal;
+			width: 80px;
+			height: 30px;
+			text-align: center;
+			border: solid 1px #d9e4f2;
+		}
+	</style>
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">库房</a> > 入库管理 > 详情 > 详情</span> </div>
+		<div class="theme">
+			<h2>订单信息</h2>
+		</div>
+		<div class="search-box">
+			<li>
+				<label><span class="required">*</span>项目名称：</label>
+				<input class="easyui-validatebox" id="" />
+			</li>
+			<li>
+				<label  style="margin-left: 65px;"><span class="required">*</span>合同号：</label>
+				<input class="easyui-validatebox" id="" />
+			</li>
+			<li>
+				<label  style="margin-left: 65px;"><span class="required">*</span>订单号：</label>
+				<input class="easyui-validatebox" id="" />
+			</li>
+			<div class="clear"></div>
+		</div>
+		<div class="search-box">
+			<li>
+				<label ><span class="required">*</span>投产编号：</label>
+				<input class="easyui-validatebox" id="" />
+			</li>
+			<li>
+				<label  style="margin-left: 65px;"><span class="required">*</span>要求日期：</label>
+				<input class="easyui-validatebox" id="" />
+			</li>
+			<li>
+				<label  style="margin-left: 65px;"><span class="required">*</span>调拨次数：</label>
+				<input class="easyui-validatebox" id="" />
+			</li>
+			<div class="clear"></div>
+		</div>		
+		<div class="theme">
+			<h2>产品信息</h2>
+		</div>
+		<div class="search-box">
+			<li>
+				<label><span class="required">*</span>公司名称：</label>
+				<input class="easyui-validatebox" id="" />
+			</li>
+			<li>
+				<label style="margin-left: 65px;"><span class="required">*</span>公司规格：</label>
+				<input class="easyui-validatebox" id="" />
+			</li>
+			<li>
+				<label style="margin-left: 65px;"><span class="required">*</span>公司图号：</label>
+				<input class="easyui-validatebox" id="" />
+			</li>
+			<div class="clear"></div>
+		</div>	
+		<div class="theme">
+			<h2>物料信息</h2>
+		</div>
+		<div class="search-m" style="padding: 10px 0;">
+			<a class="btn_search"><span class="l-btn-text" onClick="addPop9('12')">添加</span></a>
+		</div>
+		<table border="1" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+			<thead>
+				<th>产品名称</th>
+				<th>入库日期</th>
+				<th>入库数量</th>
+			</thead>
+			<tbody id="">
+				<tr>
+					<td>梯式直通</td>
+					<td>2017-10-08</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>梯式直通</td>
+					<td>2017-10-07</td>
+					<td>100</td>
+				</tr>
+				<tr>
+					<td>梯式直通</td>
+					<td>2017-10-08</td>
+					<td>100</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="show_btn">
+			<a href="Warehouse.html"  class="btn_search"><span class="l-btn-text">提交 </span></a>
+		</div>
+	</body>
+</html>

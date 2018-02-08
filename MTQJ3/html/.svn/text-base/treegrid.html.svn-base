@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<!--<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>-->
+		<script src="js/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<!--<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">-->
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+		<script src="js/easyui-lang-zh_CN.js"></script>
+		<script>
+			$(function() {　　 //初始加载，表格宽度自适应
+				$(document).ready(function() {
+					fitCoulms();
+				});　　 //浏览器窗口大小变化后，表格宽度自适应
+				$(window).resize(function() {
+					fitCoulms();
+				});
+			})
+
+			//表格宽度自适应，这里的#dg是datagrid表格生成的div标签
+			function fitCoulms() {
+				$('#dg').datagrid({
+					fitColumns: false
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">销管部</a> > 订单审批 > 详情</span> </div>
+		<div class="theme">
+			<h2>订单信息</h2>
+		</div>
+		<div id="">
+			<table width="80%" border="0" cellspacing="0" cellpadding="0" class="form_table" id="">
+				<colgroup>
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+				</colgroup>
+				<tr>
+					<th>项目名称： </th>
+					<td>2333333333333</td>
+					<th>合同号： </th>
+					<td>23333333333333333</td>
+					<th>订单号： </th>
+					<td>2333333333333</td>
+				</tr>
+				<tr>
+					<th>投产编号： </th>
+					<td>233333333333333</td>
+					<th>要求日期： </th>
+					<td><input id="" maxlength="30" class="easyui-datebox" /></td>
+				</tr>
+				<tr>
+					<th>投产编号： </th>
+					<td>23333333333333</td>
+				</tr>
+			</table>
+			<div>
+				<span style="width：100px;height:60px;padding-left: 30px;float:left;vertical-align: center;">计划说明：</span>
+				<textarea rows="3" cols="100" style="padding: 5px;margin-left: 10px;">2333333333333333333333333333333333333333333333333333333333333333333333333333333</textarea>
+			</div>
+			<div class="clear"></div>
+			<div>
+				<span style="width：100px;height:60px;padding-left: 30px;float:left;vertical-align: center;">计划要求：</span>
+				<textarea rows="3" cols="100" style="padding: 5px;margin-left: 10px;">233333333333333333333333333333333333333333333333333333333333333333333</textarea>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="theme">
+			<h2>物料信息</h2>
+		</div>
+		<div style="padding:5px 20px;">
+			<table id="dg" class="easyui-treegrid" title="" style="min-width:1000px;height:auto" data-options="
+				url: 'treegrid.json',
+				method: 'get',
+				rownumbers: true,
+				idField: 'id',
+				treeField: 'name',
+				pagination:true,
+				pageSize:10">
+				<thead data-options="frozen:true">
+					<tr>
+						<th data-options="field:'name',width:100,align:'center'">合同名称</th>
+						<th data-options="field:'htgg',width:120,align:'center'">合同规格</th>
+						<th data-options="field:'htdw',width:60,align:'center'">合同单位</th>
+						<th data-options="field:'htsl',width:60,align:'center'">合同数量</th>
+					</tr>
+				</thead>
+				<thead>
+					<tr>
+						<th data-options="field:'cplb',width:60,align:'center'">产品类别</th>
+						<th data-options="field:'bomjb',width:60,align:'center'">BOM级别</th>
+						<th data-options="field:'gsmc',width:60,align:'center'">公司名称</th>
+						<th data-options="field:'gsgg',width:100,align:'center'">公司规格</th>
+						<th data-options="field:'gsth',width:100,align:'center'">公司图号</th>
+						<th data-options="field:'cl',width:60,align:'center'">材料</th>
+						<th data-options="field:'lc',width:50,align:'center'">料长</th>
+						<th data-options="field:'lk',width:40,align:'center'">料宽</th>
+						<th data-options="field:'lh',width:30,align:'center'">料厚</th>
+						<th data-options="field:'hslh',width:60,align:'center'">核算料厚</th>
+						<th data-options="field:'tyl',width:50,align:'center'">台用量</th>
+						<th data-options="field:'zyl',width:50,align:'center'">总用量</th>
+						<th data-options="field:'zzl',width:60,align:'center'">总重量</th>
+						<th data-options="field:'zmj',width:50,align:'center'">总面积</th>
+						<th data-options="field:'gylx',width:280,align:'center'">工艺路线</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="theme">
+			<h2>错误反馈</h2>
+		</div>
+		<div id="">
+			<div>
+				<span style="width：100px;padding-left: 30px;">问题反馈：</span>
+				<!--问题反馈一-->
+				<div style="margin-left:90px;width: 800px;border-bottom: 1px dotted #0000FF;padding: 5px 0px;">
+					<div style="width: 800px;height: auto;overflow: hidden;">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+					<div style="margin-top: 5px;">
+						<span>销管部</span><span style="margin-left: 20px;">2018-1-12</span>
+					</div>
+				</div>
+				<!--问题反馈二-->
+				<div style="margin-left:90px;width: 800px;border-bottom: 1px dotted #0000FF;padding: 5px 0px;">
+					<div style="width: 800px;height: auto;overflow: hidden;">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+					<div style="margin-top: 5px;">
+						<span>销管部</span><span style="margin-left: 20px;">2018-1-12</span>
+					</div>
+				</div>
+				<!--问题反馈三-->
+				<div style="margin-left:90px;width: 800px;border-bottom: 1px dotted #0000FF;padding: 5px 0px;">
+					<div style="width: 800px;height: auto;overflow: hidden;">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
+					<div style="margin-top: 5px;">
+						<span>销管部</span><span style="margin-left: 20px;">2018-1-12</span>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+			<div style="margin-top: 20px;">
+				<span style="width：100px;height:60px;padding-left: 30px;float:left;vertical-align: center;">问题记录：</span>
+				<textarea rows="3" cols="100" style="padding: 5px;margin-left: 10px;"></textarea>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="show_btn">
+			<a class="btn_search"><span class="l-btn-text" onclick="onSubmit()">提交 </span></a>
+		</div>
+	</body>
+	<script>
+		function onSubmit() {
+			var r = confirm("确认提交吗");
+			if(r == true) {
+				alert("提交成功");
+				window.location.href="Order_approval.html";
+			} else {
+				alert("未提交");
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<!--<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">-->
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+	</head>
+
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">生产能力管理</a> > 资源调度 > 详情</span> </div>
+		<div class="theme">
+			<h2>资源调度详情</h2>
+		</div>
+		<div id="">
+			<table width="80%" border="0" cellspacing="0" cellpadding="0" class="form_table" id="">
+				<colgroup>
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+				</colgroup>
+				<tr>
+					<th>项目名称： </th>
+					<td>2333333333333</td>
+					<th>合同号： </th>
+					<td>23333333333333333</td>
+					<th>所属车间： </th>
+					<td>2333333333333</td>
+				</tr>
+				<tr>
+					<th>人员占用： </th>
+					<td>23333333333333333333333333333333</td>					
+				</tr>
+				<tr>
+					<th>设备占用： </th>
+					<td>23333333333333333333333333333333</td>					
+				</tr>
+			</table>
+			<div class="clear"></div>
+			<div class="show_btn">
+			<a href="Resource_scheduling.html"  class="btn_search"><span class="l-btn-text">确认</span></a>
+		</div>
+		</div>				
+	</body>	
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<!--<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">-->
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+</head>
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">库房</a> > 原材料出入库记录</span> </div>
+		<div class="search-box" id="">
+				<li class="search-m fl">					
+					<a class="btn_search" ><span class="l-btn-text" onClick="addPop12('12')" >导入 </span></a>
+				</li>
+				<li class="search-m fl">
+					<input id="" maxlength="30" class="easyui-datebox" /> --- <input id="" maxlength="30" class="easyui-datebox" />
+				</li>
+				<li class="search-m fl">
+					<label>原材料名称：</label>
+					<input class="easyui-validatebox" type="text" name="name" style="width: 120px;" />
+				</li>
+				<li class="search-m fl">
+					<label>规格：</label>
+					<input class="easyui-validatebox" type="text" name="name" style="width: 120px;" />
+				</li>
+				
+				<li class="search-m fl">					
+					<a class="btn_search" ><span class="l-btn-text">查询 </span></a>
+				</li>
+				<div class="clear"></div>
+			</div>
+		<div style="padding:0 20px;">
+			<table id="tt" class="easyui-datagrid" style="width:1000px;height:400px;" data-options="
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:10" >
+				<thead>
+					<tr>
+						<th data-options="field:'name1',width:100,align:'center'">日期</th>
+						<th data-options="field:'name2',width:190,align:'center'">原材料名称</th>
+						<th data-options="field:'name3',width:100,align:'center'">规格</th>
+						<th data-options="field:'name4',width:100,align:'center'">批号</th>
+						<th data-options="field:'name5',width:100,align:'center'">数量</th>
+						<th data-options="field:'name6',width:100,align:'center'">单位</th>
+						<th data-options="field:'name7',width:100,align:'center'">状态</th>
+						<th data-options="field:'name8',width:200,align:'center'">备注</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2017-11-9</td>
+						<td>梯式连接板</td>
+						<td>H=100</td>
+						<td>20171002</td>
+						<td>600</td>
+						<td>件</td>
+						<td>入库</td>
+						<td>2222222222</td>
+					</tr>
+					<tr>
+						<td>2017-11-9</td>
+						<td>梯式连接板</td>
+						<td>H=100</td>
+						<td>20171002</td>
+						<td>600</td>
+						<td>件</td>
+						<td>入库</td>
+						<td>2222222222</td>
+					</tr>
+					<tr>
+						<td>2017-11-9</td>
+						<td>梯式连接板</td>
+						<td>H=100</td>
+						<td>20171002</td>
+						<td>600</td>
+						<td>件</td>
+						<td>入库</td>
+						<td>2222222222</td>
+					</tr>
+					<tr>
+						<td>2017-11-9</td>
+						<td>梯式连接板</td>
+						<td>H=100</td>
+						<td>20171002</td>
+						<td>600</td>
+						<td>件</td>
+						<td>入库</td>
+						<td>2222222222</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

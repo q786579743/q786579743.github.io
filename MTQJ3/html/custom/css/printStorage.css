@@ -1,0 +1,38 @@
+﻿.divDisplay
+{
+    display: none;
+}
+.tableDisplay
+{
+    width: 740px;
+    border: none;
+    padding: 0 0px 10px 0px;
+    box-shadow: 3px 3px 0 #ffffff;
+    filter: progid:DXImageTransform.Microsoft.Shado(Strength=3, Direction=120, Color='#efefef');
+    -webkit-box-shadow: 3px 3px 0 #efefef;
+    -moz-box-shadow: 3px 3px 0 #efefef;
+    background: #ffffff;
+    display: block; 
+}
+.form_div
+{
+    width: 740px;
+    border: none;
+    padding: 0 0px 10px 0px;
+    box-shadow: 3px 3px 0 #ffffff;
+    filter: progid:DXImageTransform.Microsoft.Shado(Strength=3, Direction=120, Color='#efefef');
+    -webkit-box-shadow: 3px 3px 0 #efefef;
+    -moz-box-shadow: 3px 3px 0 #efefef;
+    background: #ffffff; 
+}
+.form_div h2
+{
+    padding-top: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+.pop_top_btn
+{
+    display: none;
+}

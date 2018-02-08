@@ -1,0 +1,114 @@
+{
+	"total": 28,
+	"rows": [
+		{
+			"xh": "1",
+			"bomjb": "1",
+			"gsmc": "E型支架",
+			"gsgg": "H=1150 W=380 五层",
+			"gsth": "2MT 322 009.17",
+			"zyl": "300",
+			"dblx": "塔冲-焊接",
+			"dbjd": "100%",
+			"yqsj": "2018-2-12",
+			"sjsj": "2018-2-14",
+			"sjc": "<span style=\"color:red\">2</span>"
+		}, {
+			"xh": "",
+			"bomjb": "",
+			"gsmc": "",
+			"gsgg": "",
+			"gsth": "",
+			"zyl": "",
+			"dblx": "焊接-热镀锌",
+			"dbjd": "100%",
+			"yqsj": "2018-2-12",
+			"sjsj": "2018-2-22",
+			"sjc": "<span style=\"color:red\">10</span>"
+		}, {
+			"xh": "1",
+			"bomjb": "2",
+			"gsmc": "支架立柱",
+			"gsgg": "最大负差",
+			"gsth": "2MT 322 009.17-1",
+			"zyl": "500",
+			"dblx": "塔冲-焊接",
+			"dbjd": "80%",
+			"yqsj": "2018-2-12",
+			"sjsj": "",
+			"sjc": "<span style=\"color:red\"></span>"
+		}, {
+			"xh": "1",
+			"bomjb": "3",
+			"gsmc": "支架托臂",
+			"gsgg": "H=1150 W=380 五层",
+			"gsth": "2MT 322 009.17",
+			"zyl": "300",
+			"dblx": "塔冲-焊接",
+			"dbjd": "50%",
+			"yqsj": "2018-2-12",
+			"sjsj": "",
+			"sjc": "<span style=\"color:red\"></span>"
+		},{
+			"xh": "2",
+			"bomjb": "1",
+			"gsmc": "E型支架",
+			"gsgg": "H=1150 W=380 五层",
+			"gsth": "2MT 322 009.17",
+			"zyl": "300",
+			"dblx": "塔冲-焊接",
+			"dbjd": "100%",
+			"yqsj": "2018-2-12",
+			"sjsj": "2018-2-18",
+			"sjc": "<span style=\"color:red\">5</span>"
+		}, {
+			"xh": "",
+			"bomjb": "",
+			"gsmc": "",
+			"gsgg": "",
+			"gsth": "",
+			"zyl": "",
+			"dblx": "焊接-热镀锌",
+			"dbjd": "100%",
+			"yqsj": "2018-2-12",
+			"sjsj": "2018-2-13",
+			"sjc": "<span style=\"color:red\">3</span>"
+		}, {
+			"xh": "2",
+			"bomjb": "2",
+			"gsmc": "支架立柱",
+			"gsgg": "最大负差",
+			"gsth": "2MT 322 009.17-1",
+			"zyl": "300",
+			"dblx": "塔冲-焊接",
+			"dbjd": "80%",
+			"yqsj": "2018-2-12",
+			"sjsj": "",
+			"sjc": "<span style=\"color:red\"></span>"
+		}, {
+			"xh": "",
+			"bomjb": "",
+			"gsmc": "",
+			"gsgg": "",
+			"gsth": "",
+			"zyl": "",
+			"dblx": "焊接-热镀锌",
+			"dbjd": "100%",
+			"yqsj": "2018-2-12",
+			"sjsj": "2018-2-13",
+			"sjc": "<span style=\"color:red\">3</span>"
+		},{
+			"xh": "1",
+			"bomjb": "3",
+			"gsmc": "支架托臂",
+			"gsgg": "H=1150 W=380 五层",
+			"gsth": "2MT 322 009.17",
+			"zyl": "300",
+			"dblx": "塔冲-焊接",
+			"dbjd": "50%",
+			"yqsj": "2018-2-12",
+			"sjsj": "",
+			"sjc": "<span style=\"color:red\"></span>"
+		}
+	]
+}

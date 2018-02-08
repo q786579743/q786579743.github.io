@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+	</head>
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">调拨单</span> </div>
+		<form>
+			<div class="form_div">
+
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form_table" id="">
+					<colgroup>
+						<col style="width: 100px;" />
+						<col style="width: ;" />
+						<col style="width: 100px;" />
+						<col style="width: ;" />
+					</colgroup>
+					<tr>
+						<th><span class="required">*</span>调出单位 </th>
+						<td>
+							<select class="easyui-combobox" name="language" style="width: 100px;" panelHeight="120px">
+								<option value="bl">备料</option>
+								<option value="gy">磙压</option>
+								<option value="tc">塔冲</option>
+								<option value="zn">智能</option>
+								<option value="hj">焊接</option>
+								<option value="rdx1">热镀锌1</option>
+								<option value="rdx2">热镀锌2</option>
+								<option value="pf">喷粉</option>
+								<option value="dd">电镀</option>
+							</select>
+						</td>
+						<th><span class="required">*</span>接收单位 </th>
+						<td>
+							<select class="easyui-combobox" name="language" style="width: 100px;" panelHeight="120px">
+								<option value="bl">备料</option>
+								<option value="gy">磙压</option>
+								<option value="tc">塔冲</option>
+								<option value="zn">智能</option>
+								<option value="hj">焊接</option>
+								<option value="rdx1">热镀锌1</option>
+								<option value="rdx2">热镀锌2</option>
+								<option value="pf">喷粉</option>
+								<option value="dd">电镀</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th><span class="required">*</span>名称 </th>
+						<td>
+							<input class="easyui-validatebox" style="width: 100px;" id="" />
+						</td>
+						<th><span class="required">*</span>合同序号 </th>
+						<td>
+							<input class="easyui-validatebox" style="width: 100px;" id="" />
+						</td>
+					</tr>
+					<tr>
+						<th><span class="required">*</span>调拨数量 </th>
+						<td><input class="easyui-validatebox" style="width: 100px;" id="" /></td>
+					</tr>
+				</table>
+			</div>
+			<!--按钮位置-->
+			<div class="show_btn">
+				<!--按钮可用样式-->
+				<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save-w'"  onclick="$.pd.closedialog()">确认</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="javascript:void(0)" class="easyui-linkbutton btn_gray" data-options="iconCls:'icon-cancel-w'" onclick="$.pd.closedialog()">取消</a>
+			</div>
+		</form>
+	</body>
+
+</html>

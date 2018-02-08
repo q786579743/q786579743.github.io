@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<!--<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">-->
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+</head>
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">生产能力管理</a> > 设备管理</span> </div>
+		<div class="search-box" id="">
+				<!--<li class="search-m fl">					
+					<a class="btn_search" ><span class="l-btn-text" onClick="addPop7('12')" >添加 </span></a>
+				</li>-->
+				
+				<li class="search-m fl">
+					<label>设备名称：</label>
+					<input class="easyui-validatebox" type="text" name="name" style="width: 120px;" />
+				</li>
+				<li class="search-m fl">
+					<label>所属车间：</label>
+					<select class="easyui-combobox" name="language" style="width: 100px;" panelHeight="120px" >
+						<option value="ar">金加工车间</option>
+						<option value="bg">热镀锌车间</option>
+						<option value="ca">喷涂车间</option>
+					</select>
+				</li>				
+				<li class="search-m fl">					
+					<a class="btn_search" ><span class="l-btn-text">查询 </span></a>
+				</li>
+				<div class="clear"></div>
+			</div>
+		<div style="padding: 0 20px;">
+			<table id="tt" class="easyui-datagrid" style="width:1000px;height:400px;" data-options="
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:10" >
+				<thead>
+					<tr>
+						<th data-options="field:'name1',width:192,align:'center'">设备名称</th>
+						<th data-options="field:'name2',width:200,align:'center'">所属车间</th>
+						<th data-options="field:'name3',width:150,align:'center'">设备型号</th>
+						<th data-options="field:'name4',width:150,align:'center'">设备规格</th>
+						<th data-options="field:'name5',width:100,align:'center'">设备编号</th>
+						<th data-options="field:'name6',width:200,align:'center'">工作状态</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>十二工位数控冲床</td>
+						<td>金加工车间</td>
+						<td>D-T3020</td>
+						<td>15kw</td>
+						<td>1</td>
+						<td><span style="color: #08b2ef;font-weight: bold;">工作中</span></td>
+					</tr>
+					<tr>
+						<td>十二工位数控冲床</td>
+						<td>热镀锌车间</td>
+						<td>D-T3020</td>
+						<td>15kw</td>
+						<td>1</td>
+						<td><span style="color: #08b2ef;font-weight: bold;">工作中</span></td>
+					</tr>
+					<tr>
+						<td>十二工位数控冲床</td>
+						<td>喷涂车间</td>
+						<td>D-T3020</td>
+						<td>15kw</td>
+						<td>1</td>
+						<td><span style="color: #f95339;font-weight: bold;">空闲可用</span></td>
+					</tr>
+					<tr>
+						<td>十二工位数控冲床</td>
+						<td>喷涂车间</td>
+						<td>D-T3020</td>
+						<td>15kw</td>
+						<td>1</td>
+						<td><span style="color: #feca5a;font-weight: bold;">故障</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

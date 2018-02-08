@@ -1,0 +1,196 @@
+.panel-header {
+  padding: 0;
+  position: relative;
+  border:none; 
+}
+.panel-body {  /*body������ɫ  2016-6-16 chongs*/
+  border:none;
+  background: #ffffff;
+}
+.panel-with-icon {
+  padding-left: 45px;
+}
+
+.panel-tool {
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  height: 16px;
+  overflow: hidden;
+}
+.panel-icon {
+  left: 5px;
+  top: 2px;
+  margin-top:0px;
+  width: 50px;
+  position: absolute;
+  height: 40px;
+}
+.panel-tool {
+  right: 5px;
+  width: auto;
+}
+.panel-tool a {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  background-color: #004d9f;
+  margin: 0 0 0 2px;
+  vertical-align: top;
+}
+.panel-tool a:hover {
+  opacity: 1;
+  filter: alpha(opacity=80);
+  background-color: #fff;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+}
+.accordion-collapse {
+  background: url('images/images/accordion_menu_arrows.png') no-repeat 0 0;
+}
+.accordion-expand {
+  background: url('images/images/accordion_menu_arrows.png') no-repeat -16px 0;
+}
+
+.layout {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  z-index: 0;
+}
+.layout-panel {
+  position: absolute;
+  overflow: hidden;
+}
+.layout-panel-east,
+.layout-panel-west {
+  z-index: 2;
+}
+.layout-panel-north,
+.layout-panel-south {
+  z-index: 3;
+}
+
+.tree {
+  margin: 0;
+ /* padding: 5px 0 5px 20px;*/
+  list-style-type: none;
+  height: auto;
+  overflow:auto ;
+  overflow-x: hidden;
+  background:#014085;
+}
+.tree li {
+  white-space: nowrap;
+  padding:10px 0;
+  color:#bfccd9;
+	/*border-bottom:1px solid #e5ebf1;*/
+	padding-left:25px;
+}
+.tree li a{
+	color:#bfccd9;
+	font-weight:normal;/*���˵����ֲ��Ӵ�*/
+	
+}
+
+.tree li:hover{
+	background:#0d4a8a; /*���˵���긡��ȥ��ɫ;*/
+	color:#fff;
+}
+.tree li:active{
+	background:#0d4a8b;
+	color:#fff;
+}
+.tree li:hover a{
+	color:#fff;
+	
+}
+
+.tree li.selected{
+	background:#156fce; /*���˵����ѡ����ɫ;*/
+	color:#fff;
+}
+.tree li.selected a {
+    color:#fff;
+	
+}
+
+.tree-file{
+  display: inline-block;
+  width: 16px;
+  height: 18px;
+  vertical-align: top;
+  overflow: hidden;
+  background: url('../../html/custom/images/sub_icon.png') no-repeat center left;
+}
+.tree li:hover .tree-file{
+ background: url('../../html/custom/images/sub_icon_on.png') no-repeat center left;
+}
+.tree li.selected .tree-file{
+ background: url('../../html/custom/images/sub_icon_on.png') no-repeat center left;
+}
+.tree_btn{
+	text-align:center;
+	border-top:2px solid #ccc;
+	padding:8px;
+}
+.tree_btn a{
+	float:none;
+	margin:0 8px 0 0;
+}
+
+.panel-title {
+  color: #898989;
+  height: 45px;
+  line-height: 45px;
+  font-size:14px;
+  font-weight:normal;
+}
+.panel-header .panel-title{  
+  height: 35px;
+  line-height: 35px;
+  background: url('images/images/leftnav_wel.png') no-repeat ;
+ 
+}/*���˵�����ͼƬ�߶�*/
+
+.panel-body .panel-title {
+  color: #fff;
+  height: 45px;
+  line-height: 45px;
+  font-size:14px;
+  font-weight:normal;
+  background:#004d9f;
+}
+.accordion {
+  background: #f5f5f5;
+  border:none;
+}
+.accordion .accordion-header,.accordion .accordion-header-selected{
+  background:none; 
+  height:45px;
+  line-height:45px;
+  cursor:pointer;
+}
+.accordion .accordion-header-selected{
+ background: url(../../../App_Themes/default/images/side-hoverbg.png) repeat-x top left;
+}
+.accordion .accordion-header-selected .panel-title {
+  color: #fff;
+  /*font-weight:bold;*/
+  background:#004d9f;
+}
+.tree-node-hover {
+	font-weight:bold;
+	color:#1370ab;
+     background:#298cef;
+}
+
+.tree-node-selected {
+	font-weight:bold;
+	color:#1370ab;
+	
+}

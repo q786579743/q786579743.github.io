@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<!--<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">-->
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+</head>
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">生产能力管理</a> > 资源调度</span> </div>
+		<div class="search-box" id="">
+				<li class="search-m fl">					
+					<a class="btn_search" ><span class="l-btn-text" onClick="addPop14('12')" >导入 </span></a>
+				</li>
+				<li class="search-m fl">
+					<label>合同号：</label>
+					<input class="easyui-validatebox" type="text" name="name" style="width: 120px;" />
+				</li>
+				<li class="search-m fl">
+					<label>所属车间：</label>
+					<input class="easyui-validatebox" type="text" name="name" style="width: 120px;" />
+				</li>
+				<li class="search-m fl">					
+					<a class="btn_search" ><span class="l-btn-text">查询 </span></a>
+				</li>
+				<div class="clear"></div>
+			</div>
+		<div style="padding:0 20px;">
+			<table id="tt" class="easyui-datagrid" style="width:1000px;height:400px;" data-options="
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:10" >
+				<thead>
+					<tr>
+						<th data-options="field:'name1',width:251,align:'center'">项目名称</th>
+						<th data-options="field:'name2',width:140,align:'center'">合同号</th>
+						<th data-options="field:'name3',width:200,align:'center'">所属车间</th>
+						<th data-options="field:'name4',width:100,align:'center'">人员占用数</th>
+						<th data-options="field:'name5',width:100,align:'center'">设备占用数</th>
+						<th data-options="field:'name6',width:100,align:'center'">状态</th>
+						<th data-options="field:'name7',width:100,align:'center'">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>金加工车间</td>
+						<td>10</td>
+						<td>5</td>
+						<td>进行中</td>
+						<td><a title='调度详情' href="Resource_detail.html" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>金加工车间</td>
+						<td>10</td>
+						<td>5</td>
+						<td>进行中</td>
+						<td>详情</td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>金加工车间</td>
+						<td>10</td>
+						<td>5</td>
+						<td>进行中</td>
+						<td>详情</td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>金加工车间</td>
+						<td>10</td>
+						<td>5</td>
+						<td>进行中</td>
+						<td>详情</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

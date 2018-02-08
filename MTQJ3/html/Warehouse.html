@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+		<script src="js/easyui-lang-zh_CN.js"></script>
+		<script>
+		$(function() {　　 //初始加载，表格宽度自适应
+			$(document).ready(function() {
+				fitCoulms();
+			});　　 //浏览器窗口大小变化后，表格宽度自适应
+			$(window).resize(function() {
+				fitCoulms();
+			});
+		})
+
+		//表格宽度自适应，这里的#dg是datagrid表格生成的div标签
+		function fitCoulms() {
+			$('#tt').datagrid({
+				fitColumns: true
+			});
+		}
+	</script>
+</head>
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">库房</a> > 入库管理</span> </div>
+		<div class="search-box" id="">
+				<li class="search-m fl">					
+					<a class="btn_search" onClick="addPop7('12')"><span class="l-btn-text">添加 </span></a>
+				</li>
+				<li class="search-m fl">
+					<label>项目名称：</label>
+					<input class="easyui-validatebox" type="text" name="name" style="width: 100px;" />
+				</li>
+				<li class="search-m fl">
+					<label>投产编号：</label>
+					<input class="easyui-validatebox" type="text" name="name" style="width: 80px;" />
+				</li>
+				<li class="search-m fl">
+					<label>日期：</label>
+					<input class="easyui-datebox" style="width:100px"> To: <input class="easyui-datebox" style="width:100px">
+				</li>
+				<li class="search-m fl">					
+					<a class="btn_search" ><span class="l-btn-text">查询 </span></a>
+				</li>
+				<div class="clear"></div>
+			</div>
+		<div style="padding: 20px;">
+			<table id="tt" class="easyui-datagrid" style="min-width:1000px;height:400px;" data-options="
+				singleSelect:true,
+				autoRowHeight:false,
+				rownumbers:true,
+				fitColumns:true,//宽度自适应
+				pagination:true,
+				pageSize:10" >
+				<thead>
+					<tr>
+						<th data-options="field:'name1',width:222,align:'center'">项目名称</th>
+						<th data-options="field:'name3',width:100,align:'center'">订单号</th>
+						<th data-options="field:'name4',width:100,align:'center'">投产编号</th>
+						<th data-options="field:'name5',width:100,align:'center'">要求完成日期</th>
+						<th data-options="field:'name6',width:70,align:'center'">订单状态</th>
+						<th data-options="field:'name7',width:70,align:'center'">排单状态</th>
+						<th data-options="field:'name2',width:80,align:'center'">创建日期</th>
+						<th data-options="field:'name8',width:60,align:'center'">操作</th>				
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单</td>
+						<td>17017GY001</td>
+						<td>1705009</td>
+						<td>6月15日</td>
+						<td>生产中</td>
+						<td>正常</td>
+						<td>2018-1-1</td>
+						<td><a href="#" onclick="openTab('入库管理-详情', 'Warehouse_detail.html')" style="color: red;">详情</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

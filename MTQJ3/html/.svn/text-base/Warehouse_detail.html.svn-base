@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+		<script src="js/easyui-lang-zh_CN.js"></script>
+		<script src="js/progressBar.js"></script>
+		<script>
+			$(function() {　　 //初始加载，表格宽度自适应
+				$(document).ready(function() {
+					fitCoulms();
+				});　　 //浏览器窗口大小变化后，表格宽度自适应
+				$(window).resize(function() {
+					fitCoulms();
+				});
+			})
+
+			//表格宽度自适应，这里的#dg是datagrid表格生成的div标签
+			function fitCoulms() {
+				$('#dg').datagrid({
+					fitColumns: false
+				});
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">库房</a> > 入库管理 > 详情</span> </div>
+		<div class="theme">
+			<h2 class="theme2">订单信息</h2>
+		</div>
+		<div id="">
+			<table width="80%" border="0" cellspacing="0" cellpadding="0" class="form_table" id="">
+				<colgroup>
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+				</colgroup>
+				<tr>
+					<th>项目名称： </th>
+					<td>2333333333333</td>
+					<th>订单号： </th>
+					<td>23333333333333333</td>
+					<th>投产编号： </th>
+					<td>2333333333333</td>
+				</tr>
+				<tr>
+					<th>合同号： </th>
+					<td>2333333333333</td>
+					<th>技术负责： </th>
+					<td>23333333333333333</td>
+					<th>联系电话： </th>
+					<td>2333333333333</td>
+				</tr>
+				<tr>
+					<th>事业部： </th>
+					<td>233333333333333</td>
+					<th>要求日期： </th>
+					<td><input id="" maxlength="30" class="easyui-datebox" /></td>
+				</tr>
+				<tr>
+					<th>计划说明： </th>
+					<td colspan="5"><textarea rows="4" cols="120">2333333333333333333333333333333333333333333333333333333333333333333333333333333</textarea></td>
+				</tr>
+				<tr>
+					<th>计划要求： </th>
+					<td colspan="5"><textarea rows="4" cols="120">2333333333333333333333333333333333333333333333333333333333333333333333333333333</textarea></td>
+				</tr>
+			</table>
+		</div>
+		<div class="theme">
+			<h2 class="theme2">物料信息</h2>
+		</div>
+		<div class="search-box" id="">
+			<li class="search-m fl">
+				<label>序号：</label>
+				<input class="easyui-validatebox" type="text" name="" style="width: 100px;" />
+			</li>
+			<li class="search-m fl">
+				<label>合同名称：</label>
+				<input class="easyui-validatebox" type="text" name="" style="width: 80px;" />
+			</li>
+			<li class="search-m fl">
+				<label>公司名称：</label>
+				<input class="easyui-validatebox" type="text" name="" style="width: 80px;" />
+			</li>
+			<li class="search-m fl">
+				<a class="btn_search"><span class="l-btn-text">查询 </span></a>
+			</li>
+			<div class="clear"></div>
+		</div>
+		<div  style="padding:5px 20px;">
+			<table id="dg" class="easyui-datagrid" title="" style="min-width:1000px;height:auto" data-options="
+				iconCls: 'icon-edit',
+				singleSelect: true,
+				toolbar: '#tb',
+				loadMsg:'加载中...',
+				url: 'Warehouse_data.json',
+				method: 'get',
+				onClickRow: onClickRow,
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:10">
+				<thead data-options="frozen:true">
+					<tr>
+						<th data-options="field:'htxh',width:60,align:'center'">合同序号</th>
+						<th data-options="field:'htmc',width:100,align:'center'">合同名称</th>
+						<th data-options="field:'htgg',width:120,align:'center'">合同规格</th>
+						<th data-options="field:'htdw',width:60,align:'center'">合同单位</th>
+						<th data-options="field:'htsl',width:60,align:'center'">合同数量</th>
+						<th data-options="field:'wcjd',width:120,align:'center',formatter:progressFormatter" >完成进度</th>
+						<th data-options="field:'yqsj',width:80,align:'center'">要求完成时间</th>
+						<th data-options="field:'sjsj',width:80,align:'center'">实际完成时间</th>
+						<th data-options="field:'sjcz',width:60,align:'center'">时间差值</th>
+					</tr>
+				</thead>
+				<thead>
+					<tr>
+						<th data-options="field:'cplb',width:60,align:'center'">产品类别</th>
+						<th data-options="field:'bomjb',width:60,align:'center'">BOM级别</th>
+						<th data-options="field:'gsmc',width:60,align:'center'">公司名称</th>
+						<th data-options="field:'gsgg',width:100,align:'center'">公司规格</th>
+						<th data-options="field:'gsth',width:120,align:'center'">公司图号</th>
+						<th data-options="field:'zyl',width:80,align:'center'">总用量</th>
+						<th data-options="field:'rkjd',width:80,align:'center'">入库进度</th>
+						<th data-options="field:'sj',width:80,align:'center'">入库时间</th>
+						<th data-options="field:'zzl',width:60,align:'center'">总重量</th>
+						<th data-options="field:'zmj',width:50,align:'center'">总面积</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript ">
+		var editIndex = undefined;
+
+		function onClickRow(index) {
+			if(editIndex != index) {
+				if(endEditing()) {
+					$('#dg').datagrid('selectRow', index)
+						.datagrid('beginEdit', index);
+					editIndex = index;
+				} else {
+					$('#dg').datagrid('selectRow', editIndex);
+				}
+			}
+		}
+		//	progressFormatter()
+		function progressFormatter(value, row, index) {
+			htmlstr = '<div class="easyui-progressbar progressbar easyui-fluid" style="width: 100%; height: 20px;">' +
+				'<div class="progressbar-value" style="width: 100%; height: 20px; line-height: 20px;"> ' +
+				'<div class="progressbar-text" style="width: ' + value + '; height: 20px; line-height: 20px;">' + value + '</div>' +
+				'</div>' +
+				'</div>';
+			return htmlstr;
+		}
+	</script>
+
+</html>

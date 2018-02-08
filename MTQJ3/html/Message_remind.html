@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+
+	<head>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<!--<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">-->
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+		<script src="js/jquery.contextmenu.r2.js"></script>
+		<script src="js/new.js"></script>
+		<script src="js/jquery.media.js"></script>
+		<script src="js/easyui-lang-zh_CN.js"></script>
+	</head>
+
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">消息提醒</span> </div>
+		<div id="" style="margin-left: 10px;">
+			<table id="" GridLines="Horizontal" contextmenu="contextmenu" class="Checkbox easyui-datagrid" title="" style="width:520px;height:auto;text-align: center;" data-options="
+				iconCls: 'icon-edit',
+				singleSelect: true,
+				toolbar: '#tb',
+				loadMsg:'加载中...',
+				method: 'get',
+				onClickRow: onClickRow,
+				idField:'itemid',
+				rownumbers:true,
+				singleSelect:false,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:10">
+				<thead>
+					<tr>
+						<th data-options="field:'tpmc',width:339,align:'center'">消息</th>
+						<th data-options="field:'tpgg',width:150,align:'center'">操作时间</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>北马巷第三次杨家寨第二次增补订单需修改</td>
+						<td>2017-12-30 13:23:56</td>
+					</tr>
+					<tr>
+						<td>新乡市阳光假日购物广场订单需修改</td>
+						<td>2017-12-11 18:10:23</td>
+					</tr>
+					<tr>
+						<td>中华机械厂园区一号改造项目订单需修改</td>
+						<td>2017-12-03 13:22:14</td>
+					</tr>
+					<tr>
+						<td>测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</td>
+						<td>2017-11-26 13:23:56</td>
+					</tr>
+					<tr>
+						<td>中州大道2号线配套计划单需修改</td>
+						<td>2017-11-12 13:23:56</td>
+					</tr>
+					<tr>
+						<td>郑州地铁17号线配套计划单需修改</td>
+						<td>2017-11-03 13:23:56</td>
+					</tr>					
+				</tbody>
+			</table>
+		</div>
+		
+	</body>
+
+</html>

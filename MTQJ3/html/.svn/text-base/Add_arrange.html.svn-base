@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+	</head>
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">导入资源调度单据 </span> </div>
+		<form>
+			<div class="form_div">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form_table" id="">
+					<colgroup>
+						<col style="width: 140px;" />
+						<col style="width: ;" />
+						<col style="width: 140px;" />
+						<col style="width: ;" />
+					</colgroup>
+					<tr>
+						<th><span class="required">*</span>选择文件：</th>
+						<td><input type="file" class="easyui-filebox" id="" name="fileImport"></td>
+					</tr>
+				</table>
+			</div>
+			<!--按钮位置-->
+			<div class="show_btn">
+				<!--按钮可用样式-->
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save-w'"  onclick="$.pd.closedialog()">确认</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="javascript:void(0)" class="easyui-linkbutton btn_gray" data-options="iconCls:'icon-cancel-w'" onclick="$.pd.closedialog()">取消</a>
+			</div>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript" src="http://www.keleyi.com/keleyi/pmedia/jquery-1.9.1.min.js"></script>
+    <style type="text/css">
+        body, html {
+            border: 0;
+            margin: 0;
+            overflow: hidden;
+            background: #fff;
+        }
+         .scrollDiv {
+            height: 25px; /* 必要元素 */
+            line-height: 25px;
+            border: #ccc 1px solid;
+            overflow: hidden; /* 必要元素 */
+        }
+
+            .scrollDiv li {
+                height: 25px;
+                padding-left: 10px;
+            }
+
+        ul, li {
+            list-style-type: none;
+            margin: 0px;
+        }
+    </style>
+
+    <!--<h2>jquery特效 单行文字向上滚动(有间歇)</h2>-->
+    <div id="scrollDiv_keleyi_com" class="scrollDiv">
+        <ul>
+            <li><a href="http://www.keleyi.com/a/bjac/5d7f4ac2efa72d30.htm">菜单滚动至顶部后固定</a></li>
+            <li><a href="http://www.keleyi.com/a/bjac/141932b419e08101.htm">jquery使用ColorBox弹出图片组浏览层</a></li>
+            <li><a href="http://www.keleyi.com/dev/fd9291320daf9360.htm">jquery右下角滑动弹出可关闭重现层</a></li>
+            <li><a href="http://www.keleyi.com/a/bjac/bf0eb8c02085b10d.htm">jquery清空textarea等输入框</a></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        function AutoScroll(obj) {
+            $(obj).find("ul:first").animate({
+                marginTop: "-25px"
+            }, 500, function () {
+                $(this).css({ marginTop: "0px" }).find("li:first").appendTo(this);
+            });
+        }
+        $(document).ready(function () {
+            setInterval('AutoScroll("#scrollDiv_keleyi_com")', 3000);
+        });
+    </script> 
+</body>
+</html>

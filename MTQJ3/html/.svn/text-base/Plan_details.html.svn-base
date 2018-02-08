@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<script src="Plugin/My97DatePicker/WdatePicker.js"></script>
+		<link href="custom/css/form.css" rel="stylesheet" type="text/css" />
+		<link href="../EasyUI/style/easyui.css" rel="stylesheet" type="text/css">
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" type="text/css" />
+		<link href="custom/css/style.css" rel="stylesheet" type="text/css" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<script src="js/plugin/pdwy.plug.lhgdialog-1.0.01.js"></script>
+		<script src="js/custom/demo.js"></script>
+		<link rel="stylesheet" type="text/css" href="themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="custom/css/demo.css">
+	</head>
+
+	<body>
+		<div id="crumb" class="cmd-panel"> <span class="currtitle" id="Span_Title">当前位置：<a href="#">计划员</a> > 计划排单 > 详情</span> </div>
+		<div class="theme" >
+			<h2>订单信息</h2>	
+		</div>
+		<div id="">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="form_table" id="">
+				<colgroup>
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+					<col style="width: 120px;" />
+					<col style="width: ;" />
+					<col style="width: 100px;" />
+					<col style="width: ;" />
+				</colgroup>
+				<tr>
+					<th><span class="required">*</span>项目名称 </th>
+					<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+					<th><span class="required">*</span>合同号 </th>
+					<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+					<th id="" runat="server"><span class="required">*</span>订单号 </th>
+					<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+				</tr>
+				<tr>
+					<th><span class="required">*</span>投产编号 </th>
+					<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+					<th><span class="required">*</span>要求完成日期 </th>
+					<td><input class="easyui-validatebox" data-options="required:true" id="" /></td>
+				</tr>
+			</table>
+			<div class="clear"></div>
+		</div>
+		<div class="theme" >
+			<h2>物料信息</h2>	
+		</div>
+		<div style="padding:5px 20px;">			
+			<table id="dg" class="easyui-datagrid" title="" style="width:1000px;height:auto" data-options="
+				iconCls: 'icon-edit',
+				singleSelect: true,
+				toolbar: '#tb',
+				loadMsg:'加载中...',
+				url: 'datagrid_data1.json',
+				method: 'get',
+				onClickRow: onClickRow,
+				rownumbers:true,
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:10" >
+				<thead data-options="frozen:true">
+					<tr>
+						<th data-options="field:'itemid',width:180">合同号</th>
+					</tr>
+				</thead>
+				<thead>
+					<tr>
+						<th data-options="field:'productid',width:200,
+						formatter:function(value,row){
+							return row.productname;
+						},
+						editor:{
+							type:'combobox',
+							options:{
+								valueField:'productid',
+								textField:'productname',
+								method:'get',
+								url:'products.json',
+								required:true
+							}
+						}">Product</th>
+						<th data-options="field:'listprice',width:180,align:'left',editor:{type:'numberbox',options:{precision:1}}">List Price</th>
+						<th data-options="field:'unitcost',width:100,align:'right',editor:'numberbox'">Unit Cost</th>
+						<th data-options="field:'attr1',width:250,editor:'textbox'">Attribute</th>
+						<th data-options="field:'status',width:80,align:'center',editor:{type:'checkbox',options:{on:'P',off:''}}">Status</th>
+						<th data-options="field:'attr1',width:250,editor:'textbox'">查看详情</th>
+					</tr>
+				</thead>
+			</table>
+			<div id="tb" style="height:auto">
+				<!--<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()">添加</a>-->
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()">删除</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">保存</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">撤销</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges()">修改记录</a>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var editIndex = undefined;
+
+			function endEditing() {
+				if(editIndex == undefined) {
+					return true
+				}
+				if($('#dg').datagrid('validateRow', editIndex)) {
+					var ed = $('#dg').datagrid('getEditor', {
+						index: editIndex,
+						field: 'productid'
+					});
+					var productname = $(ed.target).combobox('getText');
+					$('#dg').datagrid('getRows')[editIndex]['productname'] = productname;
+					$('#dg').datagrid('endEdit', editIndex);
+					editIndex = undefined;
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+			function onClickRow(index) {
+				if(editIndex != index) {
+					if(endEditing()) {
+						$('#dg').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+						editIndex = index;
+					} else {
+						$('#dg').datagrid('selectRow', editIndex);
+					}
+				}
+			}
+
+//			function append() {
+//				if(endEditing()) {
+//					$('#dg').datagrid('appendRow', {
+//						status: 'P'
+//					});
+//					editIndex = $('#dg').datagrid('getRows').length - 1;
+//					$('#dg').datagrid('selectRow', editIndex)
+//						.datagrid('beginEdit', editIndex);
+//				}
+//			}
+
+			function removeit() {
+				if(editIndex == undefined) {
+					return
+				}
+				$('#dg').datagrid('cancelEdit', editIndex)
+					.datagrid('deleteRow', editIndex);
+				editIndex = undefined;
+			}
+
+			function accept() {
+				if(endEditing()) {
+					$('#dg').datagrid('acceptChanges');
+				}
+			}
+
+			function reject() {
+				$('#dg').datagrid('rejectChanges');
+				editIndex = undefined;
+			}
+
+			function getChanges() {
+				var rows = $('#dg').datagrid('getChanges');
+				alert(rows.length + ' 行被修改');
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,517 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<script src="../EasyUI/Scripts/jquery-1.8.0.min.js"></script>
+		<script src="../EasyUI/Scripts/jquery.easyui.min.js"></script>
+		<link href="custom/css/style.css" rel="stylesheet" />
+		<link href="custom/css/system_index.css" rel="stylesheet" />
+		<link href="../EasyUI/style/easyui.css" rel="stylesheet" />
+		<link href="../EasyUI/style/easyui_menu.css" rel="stylesheet" />
+		<link href="../EasyUI/style/icon.css" rel="stylesheet" />
+		<script src="Plugin/lhgdialog/load.js"></script>
+		<link rel="shortcut icon" href="custom/images/favico2.ico">
+		<script src="js/custom/demo.js"></script>
+		<style type="text/css">
+			html {
+				overflow: hidden;
+			}
+			
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+			
+			body {
+				background-color: #FFF;
+			}
+			
+			.layout-panel-north {
+				position: static;
+			}
+			
+			.tree-node-selected {
+				background: none;
+			}
+			
+			.tree-node-hover {
+				background: none;
+			}
+			
+			.tabs-tool {
+				border-left: none;
+				border-right: none;
+				border-top: none;
+				background: none;
+			}
+		</style>
+		<script language="javascript" type="text/javascript">
+			$.extend($.fn.tree.methods, {
+				unSelect: function(jq, target) {
+					return jq.each(function() {
+						//$(target).removeClass("tree-node-selected");
+						$("div.tree-node-selected", target).removeClass("tree-node-selected");
+					});
+				}
+			});
+
+			function sysMenu(p_options) {
+
+				var opt = this._setOptions(p_options);
+				this.tabPanel = opt.tabPanel;
+				this.currentSelectedTabPanel = opt.currentSelectedTabPanel;
+				this._currentSelectedTreeNode = null;
+			}
+
+			sysMenu.prototype = {
+
+				_setOptions: function(options) {
+					this.options = {
+						tabPanel: $("#main"),
+						currentSelectedTabPanel: null
+					};
+					return $.extend(this.options, options || {});
+				},
+				closeAllTabs: function() {
+					var _tabPanel = this.tabPanel;
+					$(_tabPanel.tabs("tabs")).each(function() {
+						var _homeFrameTitle = '首页';
+						if($(this).panel("options").title != _homeFrameTitle) {
+							$("#main").tabs("close", $(this).panel("options").title);
+						}
+					})
+				},
+				addTab: function(url, title) {
+					var _tabPanel = this.tabPanel;
+					if(!_tabPanel.tabs('exists', title)) {
+						_tabPanel.tabs('add', {
+							title: title,
+							content: '<iframe src="' + url + '" style="padding:0;margin:0;border:0;width:100%;height:99%;" frameborder=0></iframe>',
+							closable: true
+						});
+						this.bindfresh(title);
+					} else {
+						var tab = _tabPanel.tabs("getTab", title);
+						var src = $(tab.panel("options").content).attr("src");
+						if(src != url) {
+							_tabPanel.tabs('update', {
+								tab: tab,
+								options: {
+									content: '<iframe src="' + url + '" style="padding:0;margin:0;border:0;width:100%;height:99%;" frameborder=0></iframe>'
+								}
+							});
+						}
+						_tabPanel.tabs('select', title);
+					}
+
+				},
+				closeTab: function(title) {
+					this.tabPanel.tabs('close', title);
+				},
+				goHome: function() {
+					this.tabPanel.tabs('select', "首页");
+				},
+				tabfresh: function() {
+					this.freshTab(this.tabPanel.tabs('getSelected').panel('options').title);
+				},
+				bindfresh: function(title) {
+					var _that = this;
+					$(".tabs-inner>.tabs-title:contains('" + title + "')").dblclick(function() {
+						var _ctab = _that.tabPanel.tabs('getTab', title);
+						var html = _ctab.html();
+						_ctab.html(html);
+						SelectedMenu(title);
+					});
+
+					//$(".tabs-inner>.tabs-title:contains('" + title + "')").click(function () {
+
+					//    SelectedMenu(title);
+					//});
+					$(".tabs-inner>.tabs-title:contains('" + title + "')").parent().click(function() {
+
+						SelectedMenu(title);
+					});
+				},
+				freshTab: function(title) {
+					var _ctab = this.tabPanel.tabs('getTab', title);
+					var html = _ctab.html();
+					_ctab.html(html);
+				}
+			}
+			//切换页签选中左侧菜单项
+			function SelectedMenu(title) {
+				$("#UL_Menu li").each(function(i) {
+					$(this).removeClass('selected');
+				});
+
+				if(_sysMenu._currentSelectedTreeNode != null) {
+					//div[class='tree-node tree-node-selected'] - li -ul
+					_sysMenu._currentSelectedTreeNode.parent().parent().tree("unSelect", _currentSelectedTreeNode);
+				}
+				var _link = $("#UL_Menu a[title='" + title + "']");
+				var _treeNodeTarget = _link.parent().parent();
+				var _li = _treeNodeTarget.parent();
+				_li.addClass('selected');
+				var _fatherName = _link.attr('fathername');
+				$("#UL_Menu").accordion("select", _fatherName);
+				var _ul = _li.parent();
+				_ul.tree("select", _treeNodeTarget);
+				_sysMenu._currentSelectedTreeNode = _treeNodeTarget;
+			}
+			var _sysMenu;
+			//当前选中的树节点下的DIV class='tree-node-selected';
+			var _currentSelectedTreeNode = null;
+
+			$(function() {
+
+				_sysMenu = new sysMenu();
+				// $("div#<%=this.UL_Menu.ClientID %> > div:nth-child(1) > div.panel-header.accordion-header").trigger("click");
+				windowResize(false);
+				$(window).resize(function() {
+					windowResize(true);
+				});
+
+				$("#div_mask").width($(window).width());
+				$("#div_mask").height($(window).height());
+				$("#div_mask").show().delay(2000).fadeOut(); //改变delay 参数值设置来改变遮罩层div_mask的隐藏时间
+				windowResize();
+				$(window).resize(function() {
+					windowResize();
+				});
+			});
+
+			function windowResize() {
+				$('form#form1').width($(window).width());
+				$('form#form1').height($(window).height());
+				$('form#form1').layout();
+			}
+
+			function RedirectTo(obj, url) {
+
+				_sysMenu.addTab(url, $(obj).attr("title"));
+				//var _src = $("#MainFrame").attr("src");
+				//$("#MainFrame").attr("src", url);
+				//a - span - div[class='tree-node tree-node-selected']
+				_sysMenu._currentSelectedTreeNode = $(obj).parent().parent();
+				var _li = $(obj).parent().parent().parent();
+				$("#UL_Menu li").each(function(i) {
+					$(this).removeClass('selected');
+				});
+				_li.addClass('selected');
+			}
+
+			function SelectTo(obj, p_selectedmenu_title) {
+				if(_sysMenu._currentSelectedTreeNode != null) {
+					//div[class='tree-node tree-node-selected'] - li -ul
+					_sysMenu._currentSelectedTreeNode.parent().parent().tree("unSelect", _currentSelectedTreeNode);
+				}
+				var _link = $("#UL_Menu a[title='" + p_selectedmenu_title + "']");
+				var _treeNodeTarget = _link.parent().parent();
+				var _li = _treeNodeTarget.parent();
+
+				var _fatherName = _link.attr('fathername');
+				$("#UL_Menu").accordion("select", _fatherName);
+				var _ul = _li.parent();
+				_ul.tree("select", _treeNodeTarget);
+				_sysMenu._currentSelectedTreeNode = _treeNodeTarget;
+			}
+
+			function RedirectToChildren() {
+
+				switch(arguments.length) {
+					case 3:
+						RedirectToChildren0(arguments[0], arguments[1], arguments[2]);
+						break;
+					case 4:
+						RedirectToChildren1(arguments[0], arguments[1], arguments[2], arguments[3]);
+						break;
+					case 5:
+						RedirectToChildren2(arguments[0], arguments[1], arguments[2], arguments[3], arguments[4]);
+						break;
+				}
+			}
+
+			function RedirectToChildren0(obj, p_selectedmenu_title, p_refresh) {
+				SelectTo(obj, p_selectedmenu_title);
+				var _link = _sysMenu._currentSelectedTreeNode.find('a').attr('link');
+				_sysMenu.addTab('../' + _link, p_selectedmenu_title);
+				if(p_refresh)
+					_sysMenu.tabfresh();
+			}
+
+			function RedirectToChildren1(obj, p_selectedmenu_title, p_url, p_refresh) {
+				SelectTo(obj, p_selectedmenu_title);
+				_sysMenu.addTab(p_url, p_selectedmenu_title);
+				if(p_refresh)
+					_sysMenu.tabfresh();
+			}
+
+			function RedirectToChildren2(obj, p_selectedmenu_title, p_tab_tltle, p_url, p_refresh) {
+				SelectTo(obj, p_selectedmenu_title);
+				_sysMenu.addTab(p_url, p_tab_tltle);
+				if(p_refresh)
+					_sysMenu.tabfresh();
+			}
+
+			//更改密码
+			function EditPass() {
+				var _api = $.dialog({
+					title: '密码修改',
+					lock: true,
+					min: false,
+					max: false,
+					width: 500,
+					height: 230,
+					//padding: 0,
+					autoPos: true,
+					content: "url:../Manage/PassWord_Edit.aspx"
+				});
+			}
+
+			function isok() {
+				$.dialog.confirm('确定注销当前用户吗？', function() {
+					$("#Lnk_Cancel").click();
+				});
+			}
+			//导出蒙版显示
+			function ExprotMarkShow() {
+				$.messager.progress({
+					title: "消息提示",
+					msg: "正在导出资产信息,请耐心等候...",
+					text: ""
+				});
+			}
+			//导出蒙版隐藏
+			function ExprotMarkHide() {
+				$.messager.progress("close");
+			}
+
+			function btnBack() {
+				$("#Lnk_Cancel").click();
+			}
+			var dlg;
+
+			function LogOut() {
+				//sendTips('身份认证Key已卸载，系统退出登录！', 1, al());
+				if(dlg == null) {
+					dlg = $.dialog({
+						id: "dialogBack",
+						content: '身份认证Key已卸载，系统退出登录！',
+						max: false,
+						min: false,
+						title: '消息',
+						icon: 'error.gif',
+						lock: true,
+						ok: function() {
+							btnBack();
+						},
+						close: function() {
+							btnBack();
+						}
+					});
+				}
+			}
+
+			function MessageProgress(message) {
+				$.messager.progress({
+					title: "消息提示",
+					msg: message,
+					text: ""
+				});
+			}
+
+			function MessageProgressClose() {
+				$.messager.progress("close");
+			}
+		</script>
+	</head>
+
+	<body style="min-width:1000px;">
+		<form id="form1" class="easyui-layout" style="text-align: left; min-width: 1000px;" data-options="onTabSelect:'onTabSelect'">			
+			<div region="north" style="height: 81px; position: static;" border="false">
+				<div class="top_bg">
+					<div class="logo">
+						<img class="img-wz" src="custom/images/head_logo.png" />
+						<b><em class="logo-left">美特桥架生产管理系统</em></b>
+					</div>
+					<div class="topBanner" onMouseOver="document.getElementById('userInfo').style.display='block'" onMouseOut="document.getElementById('userInfo').style.display='none'">
+						<div class="user-info"></div>
+						<div class="user_icon">&nbsp;</div>
+						<div id="userInfo" onMouseOver="document.getElementById('userInfo').style.display='block'" onMouseOut="document.getElementById('userInfo').style.display='none'">
+							<ul class="group">
+								<li class="password">
+									<a href=""><span class="icon"></span><span class="txt">更改密码</span></a>
+								</li>
+								<li class="editinfo">
+									<a href=""><span class="icon"></span><span class="txt">修改资料</span></a>
+								</li>
+							</ul>
+							<ul class="group">
+								<li class="feedback">
+									<a href=""><span class="icon"></span><span class="txt">意见反馈</span></a>
+								</li>
+								<li class="exit">
+									<a href=""><span class="icon"></span><span class="txt">退出登录</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--<div class="line"></div>-->
+					<div class="topBanner" onMouseOver="document.getElementById('userInfo2').style.display='block'" onMouseOut="document.getElementById('userInfo2').style.display='none'">
+						<div class="user-info2"><span style="padding-left: 5px;">信息(10)</span></div>
+						<div class="user_icon2"></div>
+						<div id="userInfo2" onMouseOver="document.getElementById('userInfo2').style.display='block'" onMouseOut="document.getElementById('userInfo2').style.display='none'">
+							<ul class="group">
+								<li class="feedback">
+									<a href=""><span class="icon"></span><span class="txt">北马巷第三次杨家寨第二次增补订单需修改</span></a>
+								</li>
+								<li class="feedback">
+									<a href=""><span class="icon"></span><span class="txt">新乡市阳光假日购物广场订单需修改</span></a>
+								</li>
+								<li class="feedback">
+									<a href=""><span class="icon"></span><span class="txt">中华机械厂园区一号改造项目订单需修改</span></a>
+								</li>
+								<li class="feedback">
+									<a href=""><span class="icon"></span><span class="txt">测试测试测试测试测试测试测试测试</span></a>
+								</li>
+								<li style="text-align: center;padding-left: 15px;">
+									<a href="javascript:void(0)" onclick="Message_remind()"><span class="icon"></span><span class="txt">查看所有提醒</span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div region="west" style="width: 220px; padding: 0px; " title=" " data-options="border:false,headerCls:'panel_map_title'">
+				<div id="leftPanel" class="easyui-panel " fit="true" border="false" style="top: 35px; overflow-x:hidden;margin: 0px;height: 260px;">
+					<div class="easyui-accordion" id="UL_Menu" border="false" style="width: 219px;">
+						
+
+						<!--工程部-->
+						<div title="工程部" fathername='' iconcls="icon-initialize-w" style="overflow: auto; padding:0 0px;">
+							<ul class="easyui-tree">
+								<li>
+									<a class="title-width" title='订单物料' fathername='工程部' link="Material_order.html" onClick="RedirectTo(this,'Material_order.html');">订单物料</a>
+								</li>						
+							</ul>
+						</div>
+						<!--销管部-->
+						<div title="销管部" fathername='' iconcls="icon-working-w" style="overflow: auto; padding:0 0px;">		
+							<ul class="easyui-tree">
+								<li>
+									<a class="title-width"  title='订单审批' fathername='销管部' link="Order_approval.html" onClick="RedirectTo(this,'Order_approval.html');">订单审批</a>
+								</li>						
+							</ul>
+						</div>
+						<!--综合服务部-->
+						<div title="综合服务部" fathername='' iconcls="icon-reload-w" style="overflow: auto; padding:0 0px;">
+							<ul class="easyui-tree">
+								<li>
+									<a class="title-width"  title='计划排单' fathername='综合服务部' link="Plan_arrange.html" onClick="RedirectTo(this,'Plan_arrange.html');">计划排单</a>
+								</li>	
+								<li>
+									<a class="title-width"  title='生产调度' fathername='综合服务部' link="Production_schedu.html" onClick="RedirectTo(this, 'Production_schedu.html');">生产调度</a>
+								</li>
+							</ul>
+						</div>
+						<!--生产车间-->
+						<div title="生产车间" fathername='' iconcls="icon-process-w" style="overflow: auto; padding:0 0px;">		
+							<ul class="easyui-tree">
+								<li>
+									<a class="title-width"  title='工序调度' fathername='生产车间' link="Dispatch.html" onClick="RedirectTo(this, 'Dispatch.html');">工序调度</a>
+								</li>						
+							</ul>
+						</div>
+						<!--库房管理-->
+						<div title="库房" fathername='' iconcls="icon-share-w" style="overflow: auto; padding:0 0px;">		
+							<ul class="easyui-tree">
+								<li>
+									<a class="title-width"  title='入库管理' fathername='库房' link="Warehouse.html" onClick="RedirectTo(this, 'Warehouse.html');">入库管理</a>
+								</li>	
+								<li>
+									<a class="title-width"  title='已完成订单' fathername='库房' link="Completed_order.html" onClick="RedirectTo(this, 'Completed_order.html');">已完成订单</a>
+								</li>
+								<li>
+									<a class="title-width"  title='原材料库存' fathername='库房' link="Material_inventory.html" onClick="RedirectTo(this, 'Material_inventory.html');">原材料库存</a>
+								</li>
+								<li>
+									<a class="title-width"  title='成品出入库记录' fathername='库房' link="Product_record.html" onClick="RedirectTo(this, 'Product_record.html');">成品出入库记录</a>
+								</li>
+								<li>
+									<a class="title-width"  title='原材料出入库记录' fathername='库房' link="Material_record.html" onClick="RedirectTo(this, 'Material_record.html');">原材料出入库记录</a>
+								</li>
+							</ul>
+						</div>
+						<!--生产能力管理-->
+						<div title="生产能力管理" fathername="" iconcls="icon-statistics-w" style="overflow: auto; padding:0 0px;">
+							<ul class="easyui-tree">
+								<li>
+									<a class="title-width"  title='人工管理' fathername='生产能力管理' link="P_management.html" onClick="RedirectTo(this, 'P_management.html');">人工管理</a>
+								</li>
+								<li>
+									<a class="title-width"  title='设备管理' fathername='生产能力管理' link="M_management.html" onClick="RedirectTo(this, 'M_management.html');">设备管理</a>
+								</li>
+								<li>
+									<a class="title-width"  title='资源调度' fathername='生产能力管理' link="Resource_scheduling.html" onClick="RedirectTo(this, 'Resource_scheduling.html');">资源调度</a>
+								</li>
+							</ul>
+						</div>
+						<!--订单判断-->
+						<!--<div title="订单" fathername='' iconcls="icon-process-w" style="overflow: auto; padding:0 0px;">		
+							<ul class="easyui-tree">
+								<li>
+									<a title='订单判断' fathername='订单' link="Order_judgment.html" onClick="RedirectTo(this, 'Order_judgment.html');">订单判断</a>
+								</li>						
+							</ul>
+						</div>-->
+						<!--系统管理-->
+						<div title="系统管理" fathername="" iconcls="icon-riz-w" style="overflow: auto; padding:0 0px;">
+							<ul class="easyui-tree">
+								<li>
+									<a class="title-width"  title='产品设置' fathername='系统管理' link="In_development.html" onClick="RedirectTo(this, 'In_development.html');">产品设置</a>
+								</li>
+								<li>
+									<a class="title-width"  title='产品设置' fathername='树形下拉表格' link="treegrid.html" onClick="RedirectTo(this, 'treegrid.html');">树形下拉表格</a>
+								</li>
+								<li>
+									<a class="title-width"  title='图表展示' fathername='其他' link="echarts.html" onClick="RedirectTo(this, 'echarts.html');">图表展示</a>
+								</li>
+								<li>
+									<a class="title-width"  title='图表展示2' fathername='其他' link="echarts2.html" onClick="RedirectTo(this, 'echarts2.html');">图表展示2</a>
+								</li>
+							</ul>
+						</div>
+						<div title="其他" fathername="" iconcls="icon-reply-w" style="overflow: auto; padding:0 0px;">
+							<ul class="easyui-tree">
+								<li>
+									<a class="title-width"  title='404页面' fathername='其他' link="404_errors.html" onClick="RedirectTo(this, '404_errors.html');">404页面</a>
+								</li>
+								<li>
+									<a class="title-width"  title='无权限访问' fathername='其他' link="No_access.html" onClick="RedirectTo(this, 'No_access.html');">无权限访问页面</a>
+								</li>
+								<li>
+									<a class="title-width"  title='树状列表' fathername='其他' link="treedemo.html" onClick="RedirectTo(this, 'treedemo.html');">树状列表</a>
+								</li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>			
+			</div>
+			<div region="center" border="false">
+				<div id="tab-tools" style="padding-top:8px;">
+					<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-refresh-db'" title="刷新当前页签" onClick="_sysMenu.tabfresh();"></a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel-db'" title="关闭全部页签" onClick="_sysMenu.closeAllTabs();" id="a_tab_close"></a>
+				</div>
+				<div id="main" class="easyui-tabs" region="center" fit="true" border="false" plain="true" data-options="tools:'#tab-tools'">
+					<div title="欢迎页面" style="padding: 0px;">
+						<iframe frameborder="0" style="width: 100%; height: 99%;" src="main.html"></iframe>
+					</div>
+				</div>
+			</div>
+		</form>
+	</body>
+</html>
